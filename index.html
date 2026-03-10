@@ -91,41 +91,51 @@
       margin-bottom: 28px;
     }
 
-    .photo-strip {
+    .final-media {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin: 0 auto 24px;
-      max-width: 620px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto 22px;
     }
 
-    .photo-box {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,240,246,0.95));
-      border: 2px dashed rgba(214, 51, 132, 0.35);
-      border-radius: 22px;
-      min-height: 180px;
+    .media-final {
+      min-height: 220px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #fff, #ffe8f1);
+      border: 2px dashed rgba(204, 43, 117, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      color: #a54c75;
-      padding: 18px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+      padding: 20px;
+      color: #9c4470;
+      box-shadow: 0 15px 32px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
     }
 
-    .photo-box span {
-      font-size: 2rem;
-      margin-bottom: 8px;
+    .media-final span {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
     }
 
-    .photo-box strong {
-      font-size: 1rem;
+    .media-final img,
+    .media-final video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .media-final strong {
       margin-bottom: 6px;
     }
 
-    .photo-box small {
+    .media-final small {
       color: #7b6a72;
       line-height: 1.5;
+      text-align: center;
     }
 
     .question-card {
@@ -180,8 +190,9 @@
       font-weight: 700;
     }
 
-    button:hover {
-      transform: scale(1.05);
+    .yes-btn:hover,
+    .no-btn:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
     }
 
     .yes-btn {
@@ -228,32 +239,7 @@
       line-height: 1.7;
     }
 
-    .final-photos {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      max-width: 620px;
-      margin: 0 auto 22px;
-    }
-
-    .photo-final {
-      min-height: 220px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #fff, #ffe8f1);
-      border: 2px dashed rgba(204, 43, 117, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px;
-      color: #9c4470;
-      box-shadow: 0 15px 32px rgba(0, 0, 0, 0.08);
-    }
-
-    .photo-final span {
-      font-size: 2.3rem;
-      margin-bottom: 10px;
-    }
+    
 
     .thankyou {
       font-size: 1.15rem;
@@ -305,14 +291,17 @@
         padding: 28px 16px 24px;
       }
 
-      .photo-strip,
-      .final-photos {
+      .final-media {
         grid-template-columns: 1fr;
       }
 
-      .photo-box,
-      .photo-final {
+      .media-final {
         min-height: 170px;
+      }
+
+      .media-final img,
+      .media-final video {
+        height: 190px;
       }
 
       .buttons-area {
@@ -337,19 +326,6 @@
     <div id="mainContent">
       <h1>One Tiny Chance?</h1>
       <div class="subtitle">You have to say yes three times. No escaping from my apology arc now 💌</div>
-
-      <div class="photo-strip">
-        <div class="photo-box">
-          <span>🖼️</span>
-          <strong>Photo Placeholder 1</strong>
-          <small>Add your first photo here later</small>
-        </div>
-        <div class="photo-box">
-          <span>🖼️</span>
-          <strong>Photo Placeholder 2</strong>
-          <small>Add your second photo here later</small>
-        </div>
-      </div>
 
       <div class="question-card active" id="card1">
         <div class="step-badge">Question 1 of 3</div>
@@ -385,16 +361,26 @@
         Thank you for giving my apology a chance. I’ll make sure this yes means something beautiful from my side too.
       </div>
 
-      <div class="final-photos">
-        <div class="photo-final">
-          <span>📸</span>
-          <strong>Final Photo Placeholder 1</strong>
-          <small>Add a special photo here later</small>
+      <div class="final-media">
+        <div class="media-final">
+          <img src="yayy.jpeg" alt="Memory photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
+          <span style="display:none;">📸</span>
+          <strong style="display:none;">Photo 1</strong>
+          <small style="display:none;">Add your first photo as <b>yayy.jpeg</b></small>
         </div>
-        <div class="photo-final">
-          <span>📸</span>
-          <strong>Final Photo Placeholder 2</strong>
-          <small>Add another special photo here later</small>
+        <div class="media-final">
+          <img src="yayyy.jpeg" alt="Memory photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
+          <span style="display:none;">📸</span>
+          <strong style="display:none;">Photo 2</strong>
+          <small style="display:none;">Add your second photo as <b>yayyy.jpeg</b></small>
+        </div>
+        <div class="media-final">
+          <video controls onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
+            <source src="yayyyy.mp4" type="video/mp4">
+          </video>
+          <span style="display:none;">🎥</span>
+          <strong style="display:none;">Video</strong>
+          <small style="display:none;">Add your video as <b>yayyyy.mp4</b></small>
         </div>
       </div>
 
@@ -478,4 +464,5 @@
   </script>
 </body>
 </html>
+
 
