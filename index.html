@@ -435,13 +435,24 @@
       const areaRect = playArea.getBoundingClientRect();
       const btnRect = noBtn.getBoundingClientRect();
 
+      // allow full area jumps so it escapes faster
       const maxX = Math.max(0, areaRect.width - btnRect.width);
       const maxY = Math.max(0, areaRect.height - btnRect.height);
 
+      // jump to a completely random place instantly
       const randomX = Math.random() * maxX;
       const randomY = Math.random() * maxY;
 
+      noBtn.style.transition = 'none';
       noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+      noBtn.style.transform = 'translate(0,0)';
+
+      // tiny delay then restore smoothness
+      setTimeout(()=>{
+        noBtn.style.transition = 'left 0.15s linear, top 0.15s linear';
+      },10);
+    }px`;
       noBtn.style.top = `${randomY}px`;
       noBtn.style.transform = 'translate(0, 0)';
     }
@@ -451,6 +462,8 @@
       const playArea = document.getElementById(areaId);
 
       noBtn.addEventListener('mouseenter', () => moveButton(noBtn, playArea));
+      // also trigger when cursor gets close by moving in the area
+      playArea.addEventListener('mousemove', () => moveButton(noBtn, playArea));
       noBtn.addEventListener('click', () => moveButton(noBtn, playArea));
       noBtn.addEventListener('touchstart', (e) => {
         e.preventDefault();
@@ -528,5 +541,4 @@
   </script>
 </body>
 </html>
-
 
