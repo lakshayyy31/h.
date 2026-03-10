@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Please Forgive Me</title>
+  <title>Forgive Me?</title>
   <style>
     * {
       box-sizing: border-box;
@@ -17,253 +17,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #ffe4ec 0%, #fff6da 50%, #e6f0ff 100%);
-      overflow: hidden;
       padding: 20px;
-      position: relative;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.35;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    body::before {
-      background: #ff8db3;
-      top: -80px;
-      left: -80px;
-    }
-
-    body::after {
-      background: #8db8ff;
-      bottom: -80px;
-      right: -80px;
+      background: linear-gradient(135deg, #ffd6e7, #fff0c9, #dcecff);
+      overflow-x: hidden;
     }
 
     .card {
-      width: min(92vw, 760px);
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(12px);
+      width: min(94vw, 780px);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
       border-radius: 28px;
+      padding: 30px 22px 34px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-      padding: 38px 28px 34px;
       text-align: center;
       position: relative;
-      z-index: 1;
       overflow: hidden;
-    }
-
-    .sparkle {
-      position: absolute;
-      font-size: 20px;
-      opacity: 0.7;
-      animation: float 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .sparkle.one { top: 18px; left: 22px; }
-    .sparkle.two { top: 24px; right: 28px; animation-delay: 1s; }
-    .sparkle.three { bottom: 20px; left: 30px; animation-delay: 2s; }
-    .sparkle.four { bottom: 16px; right: 22px; animation-delay: 3s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(6deg); }
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 3.3rem);
-      color: #d63384;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      color: #666;
-      font-size: 1rem;
-      margin-bottom: 28px;
-    }
-
-    .final-media {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      max-width: 720px;
-      margin: 0 auto 22px;
-    }
-
-    .media-final {
-      min-height: 220px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, #fff, #ffe8f1);
-      border: 2px dashed rgba(204, 43, 117, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px;
-      color: #9c4470;
-      box-shadow: 0 15px 32px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-    }
-
-    .media-final span {
-      font-size: 2.3rem;
-      margin-bottom: 10px;
-    }
-
-    .media-final img,
-    .media-final video {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 18px;
-      display: block;
-    }
-
-    .media-final strong {
-      margin-bottom: 6px;
-    }
-
-    .media-final small {
-      color: #7b6a72;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    .question-card {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(214, 51, 132, 0.12);
-      border-radius: 22px;
-      padding: 22px 18px 18px;
-      margin: 16px auto;
-      max-width: 620px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .question-card.active {
-      transform: scale(1.01);
-      box-shadow: 0 16px 36px rgba(214, 51, 132, 0.10);
-    }
-
-    .step-badge {
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #fff1f6;
-      color: #c22570;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .question {
-      font-size: clamp(1.15rem, 2.6vw, 1.55rem);
-      color: #4a4a4a;
-      margin-bottom: 14px;
-      font-weight: 700;
-    }
-
-    .buttons-area {
-      position: relative;
-      height: 95px;
-      margin-top: 6px;
-    }
-
-    button {
-      border: none;
-      padding: 13px 28px;
-      font-size: 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-      font-weight: 700;
-    }
-
-    .yes-btn:hover,
-    .no-btn:hover {
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
-    }
-
-    .yes-btn {
-      background: linear-gradient(135deg, #ff4d8d, #ff7aaa);
-      color: white;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-120%, -50%);
-    }
-
-    .no-btn {
-      background: #f3f5f7;
-      color: #333;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(20%, -50%);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .final-screen {
-      display: none;
-      animation: fadeIn 0.6s ease;
-    }
-
-    .final-screen.show {
-      display: block;
-    }
-
-    .final-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #cc2b75;
-      margin-bottom: 10px;
-    }
-
-    .final-text {
-      color: #555;
-      font-size: 1.05rem;
-      margin-bottom: 26px;
-      line-height: 1.7;
-    }
-
-    
-
-    .thankyou {
-      font-size: 1.15rem;
-      color: #c2185b;
-      font-weight: bold;
-      min-height: 28px;
-      margin-top: 8px;
-    }
-
-    .ending-next {
-      border: none;
-      padding: 14px 30px;
-      font-size: 1rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 700;
-      color: white;
-      background: linear-gradient(135deg, #ff4d8d, #ff7aaa);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.14);
-      margin-top: 8px;
-    }
-
-    .ending-step {
-      animation: fadeIn 0.5s ease;
     }
 
     .hearts {
@@ -271,13 +39,12 @@
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      border-radius: 28px;
     }
 
     .heart {
       position: absolute;
       font-size: 20px;
-      animation: floatUp 3.5s linear forwards;
+      animation: floatUp 3s linear forwards;
       opacity: 0.9;
     }
 
@@ -287,7 +54,7 @@
         opacity: 0.9;
       }
       100% {
-        transform: translateY(-260px) scale(1.5);
+        transform: translateY(-240px) scale(1.4);
         opacity: 0;
       }
     }
@@ -303,239 +70,398 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .card {
-        padding: 28px 16px 24px;
-      }
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      color: #d63384;
+      margin-bottom: 10px;
+    }
 
-      .final-media {
+    .subtitle {
+      color: #5b5b5b;
+      font-size: 1rem;
+      margin-bottom: 22px;
+    }
+
+    .main-btn,
+    .yes-btn,
+    .ending-next {
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff4d8d, #ff7aaa);
+      color: white;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+    }
+
+    .main-btn,
+    .ending-next {
+      padding: 15px 30px;
+      font-size: 1rem;
+    }
+
+    .main-btn:hover,
+    .yes-btn:hover,
+    .ending-next:hover {
+      transform: scale(1.04);
+    }
+
+    .question-card,
+    .final-screen {
+      display: none;
+      animation: fadeIn 0.45s ease;
+    }
+
+    .question-card.active,
+    .final-screen.show {
+      display: block;
+    }
+
+    .step-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #fff1f7;
+      color: #c22570;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 14px;
+    }
+
+    .question {
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      color: #444;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 18px;
+      padding: 0 6px;
+    }
+
+    .buttons-area {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      height: 130px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .yes-btn,
+    .no-btn {
+      position: absolute;
+      top: 50%;
+      padding: 14px 26px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+      user-select: none;
+    }
+
+    .yes-btn {
+      left: 35%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .no-btn {
+      left: 67%;
+      transform: translate(-50%, -50%);
+      background: #eef1f4;
+      color: #333;
+      transition: left 0.07s linear, top 0.07s linear;
+    }
+
+    .final-title {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      color: #cc2b75;
+      margin-bottom: 10px;
+    }
+
+    .final-text {
+      color: #555;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .media-final {
+      max-width: 560px;
+      margin: 0 auto 18px;
+      background: linear-gradient(135deg, #fff, #ffe8f1);
+      border: 2px dashed rgba(204, 43, 117, 0.35);
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 620px;
+      margin: 0 auto 18px;
+    }
+
+    .media-box {
+      background: linear-gradient(135deg, #fff, #ffe8f1);
+      border: 2px dashed rgba(204, 43, 117, 0.35);
+      border-radius: 24px;
+      padding: 10px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    img,
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      object-fit: cover;
+      max-height: 360px;
+    }
+
+    .thankyou {
+      font-size: 1.45rem;
+      color: #c2185b;
+      font-weight: 800;
+      margin: 18px 0 16px;
+    }
+
+    .big-final-btn {
+      font-size: 1.1rem;
+      padding: 16px 34px;
+      background: linear-gradient(135deg, #ff4d8d, #ff9ec4);
+    }
+
+    @media (max-width: 640px) {
+      .media-grid {
         grid-template-columns: 1fr;
       }
 
-      .media-final {
-        min-height: 170px;
-      }
-
-      .media-final img,
-      .media-final video {
-        height: 190px;
-      }
-
       .buttons-area {
-        height: 110px;
+        height: 160px;
       }
 
-      button {
-        padding: 12px 22px;
-        font-size: 0.95rem;
+      .yes-btn {
+        left: 30%;
+      }
+
+      .no-btn {
+        left: 72%;
       }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="sparkle one">✨</div>
-    <div class="sparkle two">💖</div>
-    <div class="sparkle three">🌸</div>
-    <div class="sparkle four">✨</div>
     <div class="hearts" id="hearts"></div>
 
-    <div id="startScreen" style="text-align:center;margin-bottom:20px;">
-      <button id="startBtn" style="padding:16px 36px;font-size:1.1rem;border-radius:999px;border:none;background:linear-gradient(135deg,#ff4d8d,#ff7aaa);color:white;cursor:pointer;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,0.2);">Tap to Start 💌</button>
+    <h1>Forgive Me?</h1>
+    <div class="subtitle">Tap through this properly, I really did mess up.</div>
+
+    <div id="startScreen">
+      <button class="main-btn" id="startBtn">Tap to Start 💌</button>
     </div>
 
-    <div id="mainContent" style="display:none;">
-      <h1>One Tiny Chance?</h1>
-      <div class="subtitle">Tap through this properly, I really did mess up.</div>
-
-      <div class="question-card active" id="card1">
-        <div class="step-badge">Question 1 of 3</div>
-        <div class="question">Shit… I know I did wrong. Will you at least hear me out once?</div>
-        <div class="buttons-area" id="playArea1">
-          <button class="yes-btn" id="yesBtn1">Yes 💖</button>
-          <button class="no-btn" id="noBtn1">No 🙈</button>
-        </div>
+    <div class="question-card" id="card1">
+      <div class="step-badge">Question 1 of 3</div>
+      <div class="question">Shit… I know I did wrong. Will you at least hear me out once?</div>
+      <div class="buttons-area" id="playArea1">
+        <button class="yes-btn" id="yesBtn1">Yes 💖</button>
+        <button class="no-btn" id="noBtn1">No 🙈</button>
       </div>
+    </div>
 
-      <div class="question-card hidden" id="card2">
-        <div class="step-badge">Question 2 of 3</div>
-        <div class="question">I messed up, and I’m not pretending otherwise. Can I get one chance to make it up to you?</div>
-        <div class="buttons-area" id="playArea2">
-          <button class="yes-btn" id="yesBtn2">Yes, maybe 💗</button>
-          <button class="no-btn" id="noBtn2">Still no 😶</button>
-        </div>
+    <div class="question-card" id="card2">
+      <div class="step-badge">Question 2 of 3</div>
+      <div class="question">I messed up, and I’m not pretending otherwise. Can I get one chance to make it up to you?</div>
+      <div class="buttons-area" id="playArea2">
+        <button class="yes-btn" id="yesBtn2">Yes 💗</button>
+        <button class="no-btn" id="noBtn2">No 😶</button>
       </div>
+    </div>
 
-      <div class="question-card hidden" id="card3">
-        <div class="step-badge">Final Question</div>
-        <div class="question">Last one… I did wrong, I know that. Will you forgive me?</div>
-        <div class="buttons-area" id="playArea3">
-          <button class="yes-btn" id="yesBtn3">Yes, I forgive you 💞</button>
-          <button class="no-btn" id="noBtn3">Nope 🏃</button>
-        </div>
+    <div class="question-card" id="card3">
+      <div class="step-badge">Final Question</div>
+      <div class="question">Last one… I did wrong, I know that. Will you forgive me?</div>
+      <div class="buttons-area" id="playArea3">
+        <button class="yes-btn" id="yesBtn3">Yes, I do 💞</button>
+        <button class="no-btn" id="noBtn3">Nope 🏃</button>
       </div>
     </div>
 
     <div class="final-screen" id="finalScreen">
       <div class="final-title">You said yes x3 😭💖</div>
-      <div class="final-text">
-        Thank you for giving me this chance.
-      </div>
+      <div class="final-text">Thank you for giving me this chance.</div>
 
-      <div id="endingStep1" class="ending-step">
-        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
+      <div id="endingStep1">
+        <div class="media-final">
           <video controls autoplay muted loop>
-            <source src="dwight.mp4" type="video/mp4">
+            <source src="dwight.mp4" type="video/mp4" />
           </video>
         </div>
         <button class="ending-next" id="toStep2">Next ➜</button>
       </div>
 
-      <div id="endingStep2" class="ending-step" style="display:none;">
-        <div class="final-media" style="grid-template-columns:repeat(2,1fr);max-width:620px;">
-          <div class="media-final"><img src="yayy.jpeg" alt="photo1"></div>
-          <div class="media-final"><img src="yayyy.jpeg" alt="photo2"></div>
+      <div id="endingStep2" style="display: none;">
+        <div class="media-grid">
+          <div class="media-box">
+            <img src="yayy.jpeg" alt="Photo 1" />
+          </div>
+          <div class="media-box">
+            <img src="yayyy.jpeg" alt="Photo 2" />
+          </div>
         </div>
         <button class="ending-next" id="toStep3">Next memory ➜</button>
       </div>
 
-      <div id="endingStep3" class="ending-step" style="display:none;">
-        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
+      <div id="endingStep3" style="display: none;">
+        <div class="media-final">
           <video controls>
-            <source src="yayyyy.mp4" type="video/mp4">
+            <source src="yayyyy.mp4" type="video/mp4" />
           </video>
         </div>
         <button class="ending-next" id="toStep4">One more ➜</button>
       </div>
 
-      <div id="endingStep4" class="ending-step" style="display:none;">
-        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
+      <div id="endingStep4" style="display: none;">
+        <div class="media-final">
           <video controls>
-            <source src="hehe.mp4" type="video/mp4">
+            <source src="hehe.mp4" type="video/mp4" />
           </video>
         </div>
         <button class="ending-next" id="toStep5">Final next ✨</button>
       </div>
 
-      <div id="endingStep5" class="ending-step" style="display:none;">
-        <div class="thankyou" id="message" style="font-size:1.45rem;margin:20px 0 16px;">now, give me a biggg pucchiii 😘</div>
-        <button class="ending-next" id="endBtn" style="background:linear-gradient(135deg,#ff4d8d,#ff9ec4);font-size:1.15rem;padding:16px 34px;">Okayyyy 💖</button>
+      <div id="endingStep5" style="display: none;">
+        <div class="thankyou">now, give me a biggg pucchiii 😘</div>
+        <button class="ending-next big-final-btn" id="endBtn">Okayyyy 💖</button>
       </div>
     </div>
   </div>
 
   <script>
-    const hearts = document.getElementById('hearts');
-    const startBtn = document.getElementById('startBtn');
-    const startScreen = document.getElementById('startScreen');
-    const mainContent = document.getElementById('mainContent');
-    const finalScreen = document.getElementById('finalScreen');
+    const hearts = document.getElementById("hearts");
+    const startScreen = document.getElementById("startScreen");
+    const startBtn = document.getElementById("startBtn");
+    const finalScreen = document.getElementById("finalScreen");
+
+    const cards = [
+      document.getElementById("card1"),
+      document.getElementById("card2"),
+      document.getElementById("card3")
+    ];
+
+    function createHearts(count = 14) {
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = ["💖", "💕", "💗", "✨"][Math.floor(Math.random() * 4)];
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.bottom = `${Math.random() * 20}px`;
+        hearts.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
+    }
+
+    function showCard(index) {
+      cards.forEach((card) => card.classList.remove("active"));
+      if (cards[index]) cards[index].classList.add("active");
+    }
 
     function moveButton(noBtn, playArea) {
       const areaRect = playArea.getBoundingClientRect();
       const btnRect = noBtn.getBoundingClientRect();
 
-      // allow full area jumps so it escapes faster
       const maxX = Math.max(0, areaRect.width - btnRect.width);
       const maxY = Math.max(0, areaRect.height - btnRect.height);
 
-      // jump to a completely random place instantly
       const randomX = Math.random() * maxX;
       const randomY = Math.random() * maxY;
 
-      noBtn.style.transition = 'none';
-      noBtn.style.left = `${randomX}px`;
-      noBtn.style.top = `${randomY}px`;
-      noBtn.style.transform = 'translate(0,0)';
-
-      // tiny delay then restore smoothness
-      setTimeout(()=>{
-        noBtn.style.transition = 'left 0.15s linear, top 0.15s linear';
-      },10);
-    }px`;
-      noBtn.style.top = `${randomY}px`;
-      noBtn.style.transform = 'translate(0, 0)';
+      noBtn.style.left = `${randomX + btnRect.width / 2}px`;
+      noBtn.style.top = `${randomY + btnRect.height / 2}px`;
+      noBtn.style.transform = "translate(-50%, -50%)";
     }
 
     function setupNoButton(noId, areaId) {
       const noBtn = document.getElementById(noId);
       const playArea = document.getElementById(areaId);
 
-      noBtn.addEventListener('mouseenter', () => moveButton(noBtn, playArea));
-      // also trigger when cursor gets close by moving in the area
-      playArea.addEventListener('mousemove', () => moveButton(noBtn, playArea));
-      noBtn.addEventListener('click', () => moveButton(noBtn, playArea));
-      noBtn.addEventListener('touchstart', (e) => {
+      noBtn.addEventListener("mouseenter", () => moveButton(noBtn, playArea));
+      noBtn.addEventListener("click", () => moveButton(noBtn, playArea));
+
+      playArea.addEventListener("mousemove", (e) => {
+        const rect = noBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 120) {
+          moveButton(noBtn, playArea);
+        }
+      });
+
+      noBtn.addEventListener("touchstart", (e) => {
         e.preventDefault();
         moveButton(noBtn, playArea);
       });
     }
 
-    setupNoButton('noBtn1', 'playArea1');
-    setupNoButton('noBtn2', 'playArea2');
-    setupNoButton('noBtn3', 'playArea3');
+    setupNoButton("noBtn1", "playArea1");
+    setupNoButton("noBtn2", "playArea2");
+    setupNoButton("noBtn3", "playArea3");
 
-    function createHearts(count = 16) {
-      for (let i = 0; i < count; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.textContent = ['💖', '💕', '💗', '✨'][Math.floor(Math.random() * 4)];
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.bottom = `${Math.random() * 20}px`;
-        heart.style.animationDelay = `${Math.random() * 0.4}s`;
-        hearts.appendChild(heart);
-        setTimeout(() => heart.remove(), 3500);
-      }
-    }
-
-    function showCard(currentId, nextId) {
-      const current = document.getElementById(currentId);
-      const next = document.getElementById(nextId);
-
-      current.classList.remove('active');
-      current.classList.add('hidden');
-      next.classList.remove('hidden');
-      next.classList.add('active');
-      createHearts(10);
-    }
-
-    startBtn.addEventListener('click',()=>{startScreen.style.display='none';mainContent.style.display='block';});
-
-    document.getElementById('yesBtn1').addEventListener('click', () => {
-      showCard('card1', 'card2');
+    startBtn.addEventListener("click", () => {
+      startScreen.style.display = "none";
+      showCard(0);
+      createHearts(12);
     });
 
-    document.getElementById('yesBtn2').addEventListener('click', () => {
-      showCard('card2', 'card3');
-    });
-
-    document.getElementById('yesBtn3').addEventListener('click', () => {
-      mainContent.style.display = 'none';
-      finalScreen.classList.add('show');
-      createHearts(28);
-    });
-
-    document.getElementById('toStep2').addEventListener('click',()=>{
-      document.getElementById('endingStep1').style.display='none';
-      document.getElementById('endingStep2').style.display='block';
+    document.getElementById("yesBtn1").addEventListener("click", () => {
+      showCard(1);
       createHearts(10);
     });
-    document.getElementById('toStep3').addEventListener('click',()=>{
-      document.getElementById('endingStep2').style.display='none';
-      document.getElementById('endingStep3').style.display='block';
+
+    document.getElementById("yesBtn2").addEventListener("click", () => {
+      showCard(2);
       createHearts(10);
     });
-    document.getElementById('toStep4').addEventListener('click',()=>{
-      document.getElementById('endingStep3').style.display='none';
-      document.getElementById('endingStep4').style.display='block';
+
+    document.getElementById("yesBtn3").addEventListener("click", () => {
+      cards.forEach((card) => card.classList.remove("active"));
+      finalScreen.classList.add("show");
+      createHearts(22);
+    });
+
+    document.getElementById("toStep2").addEventListener("click", () => {
+      document.getElementById("endingStep1").style.display = "none";
+      document.getElementById("endingStep2").style.display = "block";
       createHearts(10);
     });
-    document.getElementById('toStep5').addEventListener('click',()=>{
-      document.getElementById('endingStep4').style.display='none';
-      document.getElementById('endingStep5').style.display='block';
+
+    document.getElementById("toStep3").addEventListener("click", () => {
+      document.getElementById("endingStep2").style.display = "none";
+      document.getElementById("endingStep3").style.display = "block";
+      createHearts(10);
+    });
+
+    document.getElementById("toStep4").addEventListener("click", () => {
+      document.getElementById("endingStep3").style.display = "none";
+      document.getElementById("endingStep4").style.display = "block";
+      createHearts(10);
+    });
+
+    document.getElementById("toStep5").addEventListener("click", () => {
+      document.getElementById("endingStep4").style.display = "none";
+      document.getElementById("endingStep5").style.display = "block";
       createHearts(14);
     });
-    document.getElementById('endBtn').addEventListener('click',()=>{
+
+    document.getElementById("endBtn").addEventListener("click", () => {
       createHearts(24);
     });
   </script>
