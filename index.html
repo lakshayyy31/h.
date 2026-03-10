@@ -323,13 +323,17 @@
     <div class="sparkle four">✨</div>
     <div class="hearts" id="hearts"></div>
 
-    <div id="mainContent">
+    <div id="startScreen" style="text-align:center;margin-bottom:20px;">
+      <button id="startBtn" style="padding:16px 36px;font-size:1.1rem;border-radius:999px;border:none;background:linear-gradient(135deg,#ff4d8d,#ff7aaa);color:white;cursor:pointer;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,0.2);">Tap to Start 💌</button>
+    </div>
+
+    <div id="mainContent" style="display:none;">
       <h1>One Tiny Chance?</h1>
       <div class="subtitle">You have to say yes three times. No escaping from my apology arc now 💌</div>
 
       <div class="question-card active" id="card1">
         <div class="step-badge">Question 1 of 3</div>
-        <div class="question">Okay first question… imagine I’m standing there awkwardly holding a tiny apology sign 🥹 — would you give me **one small chance** to make things right?</div>
+        <div class="question">Alright… level one of this forgiveness quest 🎮 — do I get a tiny chance to fix my mistake?</div>
         <div class="buttons-area" id="playArea1">
           <button class="yes-btn" id="yesBtn1">Yes 💖</button>
           <button class="no-btn" id="noBtn1">No 🙈</button>
@@ -338,7 +342,7 @@
 
       <div class="question-card hidden" id="card2">
         <div class="step-badge">Question 2 of 3</div>
-        <div class="question">Second checkpoint… if I promise extra effort, extra patience, and zero nonsense from my side — are you **at least a little bit** willing to forgive me?</div>
+        <div class="question">Level two… if I promise to behave better than my past self 😌 — are you willing to soften up a little?</div>
         <div class="buttons-area" id="playArea2">
           <button class="yes-btn" id="yesBtn2">Yes, maybe 💗</button>
           <button class="no-btn" id="noBtn2">Still no 😶</button>
@@ -347,7 +351,7 @@
 
       <div class="question-card hidden" id="card3">
         <div class="step-badge">Final Question</div>
-        <div class="question">Final boss question 😭 — after all this dramatic clicking… will you officially forgive me and unlock the *peace treaty between us*?</div>
+        <div class="question">Final level 💫 — should we officially press the *forgiveness button* and be good again?</div>
         <div class="buttons-area" id="playArea3">
           <button class="yes-btn" id="yesBtn3">Yes, I forgive you 💞</button>
           <button class="no-btn" id="noBtn3">Nope 🏃</button>
@@ -363,11 +367,27 @@
 
       <div class="final-media">
         <div class="media-final">
-          <img src="yayy.jpeg" alt="Memory photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
-          <span style="display:none;">📸</span>
-          <strong style="display:none;">Photo 1</strong>
-          <small style="display:none;">Add your first photo as <b>yayy.jpeg</b></small>
+          <video controls>
+            <source src="dwight.mp4" type="video/mp4">
+          </video>
         </div>
+        <div class="media-final">
+          <img src="yayy.jpeg" alt="photo1">
+        </div>
+        <div class="media-final">
+          <img src="yayyy.jpeg" alt="photo2">
+        </div>
+        <div class="media-final">
+          <video controls>
+            <source src="yayyyy.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-final">
+          <video controls>
+            <source src="hehe.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
         <div class="media-final">
           <img src="yayyy.jpeg" alt="Memory photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
           <span style="display:none;">📸</span>
@@ -390,6 +410,8 @@
 
   <script>
     const hearts = document.getElementById('hearts');
+    const startBtn = document.getElementById('startBtn');
+    const startScreen = document.getElementById('startScreen');
     const mainContent = document.getElementById('mainContent');
     const finalScreen = document.getElementById('finalScreen');
 
@@ -448,6 +470,8 @@
       createHearts(10);
     }
 
+    startBtn.addEventListener('click',()=>{startScreen.style.display='none';mainContent.style.display='block';});
+
     document.getElementById('yesBtn1').addEventListener('click', () => {
       showCard('card1', 'card2');
     });
@@ -464,6 +488,5 @@
   </script>
 </body>
 </html>
-
 
 
