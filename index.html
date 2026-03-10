@@ -98,10 +98,10 @@
     .ending-next {
       padding: 15px 30px;
       font-size: 1rem;
+      transition: transform 0.2s ease;
     }
 
     .main-btn:hover,
-    .yes-btn:hover,
     .ending-next:hover {
       transform: scale(1.04);
     }
@@ -164,6 +164,11 @@
       left: 35%;
       transform: translate(-50%, -50%);
       z-index: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .yes-btn:hover {
+      transform: translate(-50%, -50%) scale(1.04);
     }
 
     .no-btn {
@@ -261,7 +266,7 @@
     <div class="subtitle">Tap through this properly, I really did mess up.</div>
 
     <div id="startScreen">
-      <button class="main-btn" id="startBtn">Tap to Start 💌</button>
+      <button class="main-btn" id="startBtn">Tap to Start</button>
     </div>
 
     <div class="question-card" id="card1">
@@ -382,7 +387,6 @@
 
       noBtn.style.left = `${randomX + btnRect.width / 2}px`;
       noBtn.style.top = `${randomY + btnRect.height / 2}px`;
-      noBtn.style.transform = "translate(-50%, -50%)";
     }
 
     function setupNoButton(noId, areaId) {
@@ -467,4 +471,3 @@
   </script>
 </body>
 </html>
-
