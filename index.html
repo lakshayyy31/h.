@@ -249,6 +249,23 @@
       margin-top: 8px;
     }
 
+    .ending-next {
+      border: none;
+      padding: 14px 30px;
+      font-size: 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #ff4d8d, #ff7aaa);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.14);
+      margin-top: 8px;
+    }
+
+    .ending-step {
+      animation: fadeIn 0.5s ease;
+    }
+
     .hearts {
       position: absolute;
       inset: 0;
@@ -329,11 +346,11 @@
 
     <div id="mainContent" style="display:none;">
       <h1>One Tiny Chance?</h1>
-      <div class="subtitle">You have to say yes three times. No escaping from my apology arc now 💌</div>
+      <div class="subtitle">Tap through this properly, I really did mess up.</div>
 
       <div class="question-card active" id="card1">
         <div class="step-badge">Question 1 of 3</div>
-        <div class="question">Alright… level one of this forgiveness quest 🎮 — do I get a tiny chance to fix my mistake?</div>
+        <div class="question">Shit… I know I did wrong. Will you at least hear me out once?</div>
         <div class="buttons-area" id="playArea1">
           <button class="yes-btn" id="yesBtn1">Yes 💖</button>
           <button class="no-btn" id="noBtn1">No 🙈</button>
@@ -342,7 +359,7 @@
 
       <div class="question-card hidden" id="card2">
         <div class="step-badge">Question 2 of 3</div>
-        <div class="question">Level two… if I promise to behave better than my past self 😌 — are you willing to soften up a little?</div>
+        <div class="question">I messed up, and I’m not pretending otherwise. Can I get one chance to make it up to you?</div>
         <div class="buttons-area" id="playArea2">
           <button class="yes-btn" id="yesBtn2">Yes, maybe 💗</button>
           <button class="no-btn" id="noBtn2">Still no 😶</button>
@@ -351,7 +368,7 @@
 
       <div class="question-card hidden" id="card3">
         <div class="step-badge">Final Question</div>
-        <div class="question">Final level 💫 — should we officially press the *forgiveness button* and be good again?</div>
+        <div class="question">Last one… I did wrong, I know that. Will you forgive me?</div>
         <div class="buttons-area" id="playArea3">
           <button class="yes-btn" id="yesBtn3">Yes, I forgive you 💞</button>
           <button class="no-btn" id="noBtn3">Nope 🏃</button>
@@ -362,49 +379,48 @@
     <div class="final-screen" id="finalScreen">
       <div class="final-title">You said yes x3 😭💖</div>
       <div class="final-text">
-        Thank you for giving my apology a chance. I’ll make sure this yes means something beautiful from my side too.
+        Thank you for giving me this chance.
       </div>
 
-      <div class="final-media">
-        <div class="media-final">
-          <video controls>
+      <div id="endingStep1" class="ending-step">
+        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
+          <video controls autoplay muted loop>
             <source src="dwight.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="media-final">
-          <img src="yayy.jpeg" alt="photo1">
+        <button class="ending-next" id="toStep2">Next ➜</button>
+      </div>
+
+      <div id="endingStep2" class="ending-step" style="display:none;">
+        <div class="final-media" style="grid-template-columns:repeat(2,1fr);max-width:620px;">
+          <div class="media-final"><img src="yayy.jpeg" alt="photo1"></div>
+          <div class="media-final"><img src="yayyy.jpeg" alt="photo2"></div>
         </div>
-        <div class="media-final">
-          <img src="yayyy.jpeg" alt="photo2">
-        </div>
-        <div class="media-final">
+        <button class="ending-next" id="toStep3">Next memory ➜</button>
+      </div>
+
+      <div id="endingStep3" class="ending-step" style="display:none;">
+        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
           <video controls>
             <source src="yayyyy.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="media-final">
+        <button class="ending-next" id="toStep4">One more ➜</button>
+      </div>
+
+      <div id="endingStep4" class="ending-step" style="display:none;">
+        <div class="media-final" style="max-width:520px;margin:0 auto 18px;">
           <video controls>
             <source src="hehe.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
-        <div class="media-final">
-          <img src="yayyy.jpeg" alt="Memory photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
-          <span style="display:none;">📸</span>
-          <strong style="display:none;">Photo 2</strong>
-          <small style="display:none;">Add your second photo as <b>yayyy.jpeg</b></small>
-        </div>
-        <div class="media-final">
-          <video controls onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.nextElementSibling.style.display='block';">
-            <source src="yayyyy.mp4" type="video/mp4">
-          </video>
-          <span style="display:none;">🎥</span>
-          <strong style="display:none;">Video</strong>
-          <small style="display:none;">Add your video as <b>yayyyy.mp4</b></small>
-        </div>
+        <button class="ending-next" id="toStep5">Final next ✨</button>
       </div>
 
-      <div class="thankyou" id="message">now, give me a biggg pucchiii 😘</div>
+      <div id="endingStep5" class="ending-step" style="display:none;">
+        <div class="thankyou" id="message" style="font-size:1.45rem;margin:20px 0 16px;">now, give me a biggg pucchiii 😘</div>
+        <button class="ending-next" id="endBtn" style="background:linear-gradient(135deg,#ff4d8d,#ff9ec4);font-size:1.15rem;padding:16px 34px;">Okayyyy 💖</button>
+      </div>
     </div>
   </div>
 
@@ -484,6 +500,30 @@
       mainContent.style.display = 'none';
       finalScreen.classList.add('show');
       createHearts(28);
+    });
+
+    document.getElementById('toStep2').addEventListener('click',()=>{
+      document.getElementById('endingStep1').style.display='none';
+      document.getElementById('endingStep2').style.display='block';
+      createHearts(10);
+    });
+    document.getElementById('toStep3').addEventListener('click',()=>{
+      document.getElementById('endingStep2').style.display='none';
+      document.getElementById('endingStep3').style.display='block';
+      createHearts(10);
+    });
+    document.getElementById('toStep4').addEventListener('click',()=>{
+      document.getElementById('endingStep3').style.display='none';
+      document.getElementById('endingStep4').style.display='block';
+      createHearts(10);
+    });
+    document.getElementById('toStep5').addEventListener('click',()=>{
+      document.getElementById('endingStep4').style.display='none';
+      document.getElementById('endingStep5').style.display='block';
+      createHearts(14);
+    });
+    document.getElementById('endBtn').addEventListener('click',()=>{
+      createHearts(24);
     });
   </script>
 </body>
